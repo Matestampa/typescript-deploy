@@ -1,0 +1,20 @@
+name: "Test Action"
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  hello_world:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Print en pantalla
+        run: |
+          echo "Hola cucxx!"
+      
+      - name: Fecha
+        run: date
+      
+      - name: Listar files 
+        run: ls -l
