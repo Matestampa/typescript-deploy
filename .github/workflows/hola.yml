@@ -16,15 +16,5 @@ jobs:
       
       - uses: actions/setup-node@v2
       
-      - name: Print en pantalla
-        run: |
-          echo "Hola cucxx!"
-      
-      - name: Fecha
-        run: date
-      
-      - name: Listar files 
-        run: ls -l
-      
-      - name: Correr file
-        run: npm run build
+      - name: Install depenedencies
+        run : npm ci
