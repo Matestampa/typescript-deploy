@@ -19,22 +19,32 @@ jobs:
      runs-on: ubuntu-22.04
      steps:
        - uses: actions/checkout@v2
+         with:
+           fetch-depth: 0
        
-       - run: npm ci
+       - uses: actions/setup-node@v2
 
-       - name: Test node
-         run : npm run star
+       #- name: Test node
+       #  run : npm run star
        
        - name: Build Files
          run : npm run build
        
-       - run : ls dist 
+       - uses: actions/upload-artifact@v2
+         with:
+            name: dist
+            path: dist
          
    
    test:
      needs: [build]
      runs-on: ubuntu-22.04
      steps:
+       - uses: actions/download-artifact@v2
+         with:
+            name: dist
+            path: dist
+       
        - name: Fake testing
          run : node ./dist/app.js  #fijarse si esta creando el archivo con un ls
 
