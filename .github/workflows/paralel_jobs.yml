@@ -26,6 +26,9 @@ jobs:
 
        #- name: Test node
        #  run : npm run star
+
+       - name: Install dependencies
+         run : npm ci
        
        - name: Build Files
          run : npm run build
