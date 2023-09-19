@@ -35,7 +35,7 @@ jobs:
      runs-on: ubuntu-22.04
      steps:
        - name: Fake testing
-         run : echo "Testeando nasheee"
+         run : node ./dist/app.js
 
 
    deploy:
