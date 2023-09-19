@@ -18,9 +18,7 @@ jobs:
    build: #compilamos codigo
      runs-on: ubuntu-22.04
      steps:
-       #- uses: actions/checkout@v2
-       #  with:
-       #    fetch-depth: 0
+       - uses: actions/checkout@v2
 
        - name: Test node
          run : npm run star
