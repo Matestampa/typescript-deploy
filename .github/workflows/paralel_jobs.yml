@@ -47,6 +47,8 @@ jobs:
        
        - name: Fake testing
          run : node ./dist/app.js  #fijarse si esta creando el archivo con un ls
+       
+       - run: ls
 
 
    deploy:
