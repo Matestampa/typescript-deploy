@@ -29,13 +29,16 @@ jobs:
        
        - name: Build Files
          run : npm run build
+       
+       - run : ls dist 
+         
    
    test:
      needs: [build]
      runs-on: ubuntu-22.04
      steps:
        - name: Fake testing
-         run : node ./dist/app.js
+         run : node ./dist/app.js  #fijarse si esta creando el archivo con un ls
 
 
    deploy:
