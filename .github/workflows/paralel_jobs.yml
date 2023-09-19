@@ -7,20 +7,20 @@ on:
 
 jobs:
    
-   #avoid_redundancy:
-   #  runs-on: ubuntu-22.04
-   #  steps:
-   #   - uses: styfle/cancel-workflow-action@0.9.1
-   #     with:
-   #       access-token: ${{ github.token }}
+   avoid_redundancy:
+     runs-on: ubuntu-22.04
+     steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access-token: ${{ github.token }}
 
 
    build: #compilamos codigo
      runs-on: ubuntu-22.04
      steps:
-       - uses: actions/checkout@v2
-         with:
-           fetch-depth: 0
+       #- uses: actions/checkout@v2
+       #  with:
+       #    fetch-depth: 0
 
        - name: Test node
          run : npm run star
