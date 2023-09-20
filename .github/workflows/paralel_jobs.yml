@@ -7,22 +7,24 @@ on:
 
 jobs:
    
-   #avoid_redundancy:
-     #runs-on: ubuntu-22.04
-     #steps:
-      #- uses: styfle/cancel-workflow-action@0.9.1
-       # with:
-        #  access-token: ${{ github.token }}
+   avoid_redundancy:
+     runs-on: ubuntu-22.04
+     steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access-token: ${{ github.token }}
 
 
    build: #compilamos codigo
      runs-on: ubuntu-22.04
      steps:
-       - uses: actions/checkout@v2
+       
+       - name: Checkout repo
+         uses: actions/checkout@v2
          with:
            fetch-depth: 1
        
-       #- uses: actions/setup-node@v2
+       - uses: actions/setup-node@v2
 
        #- name: Test node
        #  run : npm run star
@@ -33,7 +35,8 @@ jobs:
        - name: Build Files
          run : npm run build
        
-       - uses: actions/upload-artifact@v2
+       - name: Upload dist  
+         uses: actions/upload-artifact@v2
          with:
             name: dist
             path: dist
@@ -43,14 +46,17 @@ jobs:
      needs: [build]
      runs-on: ubuntu-22.04
      steps:
-       - uses: actions/checkout@v2
+       
+       - name: Checkout Repo
+         uses: actions/checkout@v2
          with:
            fetch-depth: 1
        
        - name: Install dependencies
          run : npm ci
 
-       - uses: actions/download-artifact@v2
+       - name: Download dist
+         uses: actions/download-artifact@v2
          with:
             name: dist
             path: dist
@@ -62,9 +68,16 @@ jobs:
        - run: ls
 
 
-   #deploy:
-     #needs: [build,test]
-     #runs-on: ubuntu-22.04
-     #steps:
-       #- name: Fake deploy
-         #run : echo "Deployiing nasheee"
+   deploy:
+     needs: [build,test]
+     runs-on: ubuntu-22.04
+     steps:
+       
+       - name: Download dist
+         uses: actions/download-artifact@v2
+         with:
+            name: dist
+            path: dist
+
+       - name: Fake deploy
+         run : echo "Deployiing nasheee"
