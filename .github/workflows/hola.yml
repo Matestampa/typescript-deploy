@@ -24,6 +24,11 @@ jobs:
       - name: Build
         run: npm run build
       
-      - run: |
-              mv index.html ./dist
-              ls ./dist
+      - name: Add index.html
+        run:  mv index.html ./dist
+      
+      - name: Deploy
+        uses: maxheld83/ghpages@v0.2.1
+        env:
+          GH_PAT: ${{ github.token }}
+          BUILD_DIR: ./dist

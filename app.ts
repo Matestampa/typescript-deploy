@@ -1,5 +1,5 @@
-import express from "express";
+/*import express from "express";
 
-const App=express();
+const App=express();*/
 
-console.log("hi");
+document.body.style.backgroundColor="red";
