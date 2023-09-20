@@ -2,7 +2,7 @@ name: Paralel jobs
 
 on:
    push:
-     branches: ["master"]
+     branches: ["lalalal"]
 
 
 jobs:
