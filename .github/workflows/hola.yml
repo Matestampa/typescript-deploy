@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 jobs:
 
   deploy-to-ghPages:
@@ -28,7 +31,6 @@ jobs:
         run:  mv index.html ./dist
       
       - name: Deploy
-        uses: maxheld83/ghpages@v0.2.1
-        env:
-          GH_PAT: ${{ github.token }}
-          BUILD_DIR: ./dist
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./dist
