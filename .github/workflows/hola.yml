@@ -24,7 +24,7 @@ jobs:
       #- name: Install dependencies
       #  run : npm ci
       - run: npm install
-      - run: npm ls
+      - run: npm ls -g
       
       - name: Build
         run: npm run build
