@@ -29,3 +29,8 @@ jobs:
         run: npm run build
       
       - run: ls dist
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./dist #que carpeta debe tomar, para mandarla a la branch de deploy
