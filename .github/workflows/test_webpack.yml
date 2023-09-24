@@ -4,6 +4,9 @@ on:
   workflow_dispatch: #lo hacemos manual desde github
 
 
+permissions:
+  contents: write
+
 jobs:
 
   see-webpack:
