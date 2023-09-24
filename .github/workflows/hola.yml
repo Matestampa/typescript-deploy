@@ -1,12 +1,13 @@
 name: Test Action
 
 on:
-  push:
-    branches:
-      - master
+  #push:
+  #  branches:
+  #    - master
+  workflow_dispatch:
 
-permissions:
-  contents: write
+permissions: 
+  contents: write #para que funcione la action de "JamesIves/github-pages-deploy-action@v4"
 
 jobs:
 
@@ -21,10 +22,8 @@ jobs:
       
       #- uses: actions/setup-node@v2
       
-      #- name: Install dependencies
-      #  run : npm ci
-      - run: npm install
-      - run: npm ls -g
+      - name: Install dependencies
+        run : npm ci
       
       - name: Build
         run: npm run build
@@ -35,4 +34,4 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./dist
+          folder: ./dist #que carpeta debe tomar, para mandarla a la branch de deploy
