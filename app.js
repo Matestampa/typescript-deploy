@@ -2,4 +2,4 @@
 /*import express from "express";
 
 const App=express();*/
-document.body.style.backgroundColor = "red";
+document.body.style.backgroundColor = "blue";
