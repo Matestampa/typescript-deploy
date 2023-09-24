@@ -1,0 +1,32 @@
+-En este caso el deploy lo hacemos mediante github actions, 
+ y particularmente el deploy se hace a "github-pages".
+ Obviamente si fuera un project de backend se deberia hacer a otro lado,
+ pero el contenido de la action es casi igual para todo.
+
+-Por ahora hacemos que el run de la action se haga de forma manual.
+
+-Es decir cuando estemos seguros de que lo que hay en la master esta para deploy,
+ le damos manualmente a correr la action, y nos despliega de forma correcta
+ lo de la master a github-pages.
+
+
+-Pasos resumidos de lo que hacemos en la action:
+  
+  -clonamos nuestro repo
+  -instalamos las dependencias de npm
+  -hacemos el build de los .ts y demas
+
+  -usamos una action de github para hacer el deploy en concreto
+   a pages. (a esta le decimos que debe usar la carpeta "./dist" que creamos
+   con el build)
+
+
+-Como seria el deploy para backend por ejemplo:
+  
+  -Seria casi igual.
+
+  -Si estamos en typescript, la parte del build y anterior es comun para todos.
+
+  -Lo q va a cambiar es a donde hagamos deploy. Osea probablemente
+   si desplegamos a docker o algo asi, o a aws, necesitemos una action
+   en concreto de eso, que remplazaria a la de gh pages.
