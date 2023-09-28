@@ -14,7 +14,7 @@
   
   -clonamos nuestro repo
   -instalamos las dependencias de npm
-  -hacemos el build de los .ts y demas
+  -hacemos el build de los .ts y demas (en este caso con webpack)
 
   -usamos una action de github para hacer el deploy en concreto
    a pages. (a esta le decimos que debe usar la carpeta "./dist" que creamos
